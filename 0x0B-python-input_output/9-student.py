@@ -1,21 +1,32 @@
 #!/usr/bin/python3
-"""method for student creation"""
+"""Module defining the class Student"""
 
 
 class Student:
-    """Student obj, interesting how you don't have to directly
-    test for strings in a loop, python is weird"""
+    """
+    Class that defines properties of student.
 
+    Attributes:
+        first_name (str): first name of student.
+        last_name (int): last name of student.
+        age (int): age of student.
+    """
     def __init__(self, first_name, last_name, age):
+        """Creates new instances of Student.
+
+        Args:
+            first_name (str): first name of student.
+            last_name (int): last name of student.
+            age (int): age of student.
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
-        if attrs is None:
-            return self.__dict__
-        new_dictionary = {}
-        for key, value in self.__dict__.items():
-            if key in attrs:
-                new_dictionary[key] = value
-        return new_dictionary
+    def to_json(self):
+        """Retrieves a dictionary representation of a Student instance.
+
+        Returns:
+            dict: dictionary representation.
+        """
+        return self.__dict__
